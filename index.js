@@ -4,12 +4,15 @@
  const express=require("express")
  const {connection}=require('./confige/db')
  const {UserModel}=require("./models/user.model")
+ const cors=require("cors")
 require("dotenv").config()
  const PORT=process.env.PORT||8500
  const app=express()
 
  app.use(express.json())
-
+app.use(cors({
+  origin:"*"
+}))
 
 
  app.get("/",(req,res)=>{
@@ -27,8 +30,8 @@ require("dotenv").config()
 
  })
  app.get("/data",async(req,res)=>{
-  const result=await UserModel.find()
-  res.send(result)
+  const result=await UserModel.find({Mutton_Data})
+  res.send({result})
 })
  app.listen(PORT,async(req,res)=>{
   try{
