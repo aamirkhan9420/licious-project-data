@@ -16,7 +16,7 @@ app.use(cors({
 
 
  app.get("/",(req,res)=>{
-   res.send("wellcome")
+   res.send("wellcome to home")
  })
  app.post("/adddata",async(req,res)=>{
     const data=req.body
@@ -36,7 +36,7 @@ app.use(cors({
  app.listen(PORT,async(req,res)=>{
   try{
     await connection
-   console.log(`running on ${PORT}`)
+   
   }catch(e){
   
    console.log(e)
